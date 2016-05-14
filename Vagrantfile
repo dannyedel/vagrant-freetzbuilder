@@ -57,8 +57,9 @@ Vagrant.configure(2) do |config|
 		privileged: false, inline: <<-EOF
 		if [[ ! -d freetz/.svn ]] ; then
 			svn checkout http://svn.freetz.org/trunk freetz
+		else
+			cd freetz && svn update
 		fi
-		cd freetz && svn update
 	EOF
 
 	# Use ~/freetz-images for the resulting images
