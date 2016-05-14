@@ -47,6 +47,8 @@ Vagrant.configure(2) do |config|
 	echo 'PATH=/usr/lib/ccache:$PATH' > /etc/profile.d/ccache.sh
 
 	echo 'umask 0022' > /etc/profile.d/umask.sh
+
+	chown vagrant:vagrant /home/vagrant/freetz
 	EOF
 
 	# 2nd provision stage: Check out freetz trunk svn
