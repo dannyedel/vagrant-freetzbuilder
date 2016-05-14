@@ -22,11 +22,9 @@ the VM.
 * `make menuconfig`
 * `make`
 * Get coffee
+* Image should™ show up in `images/` folder on host
 
 ## Give me back my hard drive space
-
-Don't forget to save `~/freetz/.config` and any built
-images to your host before you do this.
 
 To delete the VM and restore the HDD space, call
 

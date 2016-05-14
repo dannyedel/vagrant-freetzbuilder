@@ -58,4 +58,7 @@ Vagrant.configure(2) do |config|
 		fi
 		cd freetz && svn update
 	EOF
+
+	# Use ~/freetz-images for the resulting images
+	config.vm.synced_folder "images", "/home/vagrant/freetz/images"
 end
