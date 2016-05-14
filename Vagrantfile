@@ -10,6 +10,9 @@ Vagrant.configure(2) do |config|
 	# to install on a 64bit one.
 	config.vm.box = "ubuntu/trusty32"
 
+	# 1st provision stage:
+	#
+	# Install the needed packages, and activate ccache
 	config.vm.provision "packages", type:"shell", inline: <<-EOF
 		echo 'Acquire::http::Proxy "http://10.54.5.11:3142" ;' \
 		 > /etc/apt/apt.conf.d/00proxy
@@ -46,6 +49,8 @@ Vagrant.configure(2) do |config|
 	echo 'umask 0022' > /etc/profile.d/umask.sh
 	EOF
 
+	# 2nd provision stage: Check out freetz trunk svn
+	# to $HOME/freetz
 	config.vm.provision "freetz-checkout", type: "shell",
 		privileged: false, inline: <<-EOF
 		if [[ ! -d freetz ]] ; then
