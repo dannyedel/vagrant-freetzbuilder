@@ -3,6 +3,12 @@
 
 Vagrant.configure(2) do |config|
 
+	# Use ubuntu/trusty becuase they already contain the VirtualBox drivers
+	#
+	# Only using 32 bits because (a) emulating 32bit machines is normally faster
+	# and (b) freetz will need 32bit libraries anyway, making more difficult
+	# to install on a 64bit one.
+	config.vm.box = "ubuntu/trusty32"
 
 	config.vm.provision "packages", type:"shell", inline: <<-EOF
 		echo 'Acquire::http::Proxy "http://10.54.5.11:3142" ;' \
