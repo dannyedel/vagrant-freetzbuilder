@@ -55,7 +55,7 @@ Vagrant.configure(2) do |config|
 	# to $HOME/freetz
 	config.vm.provision "freetz-checkout", type: "shell",
 		privileged: false, inline: <<-EOF
-		if [[ ! -d freetz ]] ; then
+		if [[ ! -d freetz/.svn ]] ; then
 			svn checkout http://svn.freetz.org/trunk freetz
 		fi
 		cd freetz && svn update
